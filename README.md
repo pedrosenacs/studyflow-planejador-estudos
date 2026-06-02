@@ -114,3 +114,17 @@ Exemplo:
 ```text
 Horas por dia: 4
 Dias disponíveis: Segunda, Terça, Quarta, Quinta e Sexta
+
+## Screenshots
+
+### Tela principal
+
+![Tela principal do StudyFlow](assets/tela-principal.png)
+
+### Cronograma semanal
+
+![Cronograma semanal do StudyFlow](assets/cronograma-semanal.png)
+
+### StudyFlow Tutor
+
+![Modal do StudyFlow Tutor](assets/studyflow-tutor.png)
