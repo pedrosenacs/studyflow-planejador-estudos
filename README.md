@@ -45,6 +45,54 @@ Funcionalidades disponíveis:
 
 ---
 
+## Tecnologias utilizadas
+
+### Front-end
+
+- **HTML5**  
+  Utilizado para estruturar a interface da aplicação, incluindo os formulários, cards de tópicos, painel do cronograma e modal do Tutor.
+
+- **CSS3**  
+  Utilizado para estilização visual do sistema, responsividade, modo escuro, layout em cards, botões, painel lateral, cronograma semanal e modal de diagnóstico.
+
+- **JavaScript**  
+  Utilizado para manipulação do DOM, controle dos eventos da interface, integração com a API Flask, renderização dinâmica dos tópicos, cronograma semanal e funcionamento do Tutor.
+
+- **LocalStorage**  
+  Utilizado para salvar informações locais no navegador, como:
+  - preferência de tema claro/escuro;
+  - subtópicos aplicados ao cronograma;
+  - tópicos ignorados no cronograma quando o Tutor está aplicado.
+
+---
+
+### Back-end
+
+- **Python**  
+  Linguagem utilizada para desenvolver a API do sistema e implementar as regras de negócio.
+
+- **Flask**  
+  Framework utilizado para criação da API REST, rotas de tópicos, cronograma e diagnóstico do Tutor.
+
+- **Flask-CORS**  
+  Utilizado para permitir a comunicação entre o front-end e o back-end durante a execução local.
+
+- **JSON**  
+  Utilizado como forma simples de persistência dos dados, armazenando os tópicos cadastrados no arquivo `dados.json`.
+
+---
+
+### Ferramentas de desenvolvimento
+
+- **Visual Studio Code**  
+  Utilizado como editor de código durante o desenvolvimento.
+
+- **Git**  
+  Utilizado para versionamento do projeto.
+
+- **GitHub**  
+  Utilizado para hospedagem do repositório e apresentação do projeto no portfólio.
+
 ### Cronograma semanal inteligente
 
 O sistema gera um cronograma semanal com base nos tópicos pendentes e nas preferências informadas pelo usuário.
