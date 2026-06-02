@@ -45,6 +45,22 @@ Funcionalidades disponíveis:
 
 ---
 
+## Capturas de Tela
+
+### Tela principal
+
+![Tela principal](assets/tela-principal.png)
+
+### Cronograma semanal
+
+![Cronograma semanal](assets/cronograma-semanal.png)
+
+### StudyFlow Tutor
+
+![StudyFlow Tutor](assets/studyflow-tutor.png)
+
+---
+
 ## Tecnologias utilizadas
 
 ### Front-end
@@ -115,16 +131,5 @@ Exemplo:
 Horas por dia: 4
 Dias disponíveis: Segunda, Terça, Quarta, Quinta e Sexta
 
-## Screenshots
+```
 
-### Tela principal
-
-![Tela principal do StudyFlow](assets/tela-principal.png)
-
-### Cronograma semanal
-
-![Cronograma semanal do StudyFlow](assets/cronograma-semanal.png)
-
-### StudyFlow Tutor
-
-![Modal do StudyFlow Tutor](assets/studyflow-tutor.png)
