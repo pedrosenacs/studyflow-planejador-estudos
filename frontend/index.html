@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow - Planejador Inteligente de Estudos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">S</div>
+
+                <div>
+                    <h1>StudyFlow</h1>
+                    <p>Planner inteligente</p>
+                </div>
+            </div>
+
+            <nav class="menu-lateral">
+                <a href="#visao-geral" class="menu-item ativo">
+                    <span>🏠</span>
+                    Visão geral
+                </a>
+
+                <a href="#topicos" class="menu-item">
+                    <span>📚</span>
+                    Tópicos
+                </a>
+
+                <a href="#cronograma" class="menu-item">
+                    <span>🗓️</span>
+                    Cronograma
+                </a>
+            </nav>
+
+            <div class="card-sidebar">
+                <span class="mini-label">Dica do dia</span>
+                <p>
+                    Priorize conteúdos difíceis primeiro e revise em blocos curtos.
+                </p>
+            </div>
+
+            <button id="btnTema" class="btn-tema" type="button">
+                🌙 Modo escuro
+            </button>
+        </aside>
+
+        <main class="conteudo-principal">
+            <section id="visao-geral" class="hero">
+                <div class="hero-texto">
+                    <span class="tag-projeto">StudyFlow Beta</span>
+
+                    <h2>Monte sua rotina de estudos com inteligência</h2>
+
+                    <p>
+                        Cadastre matérias, defina dificuldade e prazo, e deixe o StudyFlow
+                        organizar uma sugestão de cronograma priorizando o que mais importa.
+                    </p>
+                </div>
+
+                <div class="hero-card">
+                    <span>Progresso geral</span>
+                    <strong id="progressoGeral">0%</strong>
+
+                    <div class="barra-progresso">
+                        <div id="barraProgresso" class="barra-preenchida"></div>
+                    </div>
+
+                    <p id="textoResumoProgresso">
+                        Nenhum tópico concluído ainda.
+                    </p>
+                </div>
+            </section>
+
+            <section class="cards-dashboard">
+                <div class="stat-card">
+                    <div class="stat-icon roxo">📌</div>
+
+                    <div>
+                        <span>Total de tópicos</span>
+                        <h3 id="totalTopicos">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon amarelo">⏳</div>
+
+                    <div>
+                        <span>Pendentes</span>
+                        <h3 id="topicosPendentes">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon verde">✅</div>
+
+                    <div>
+                        <span>Concluídos</span>
+                        <h3 id="topicosConcluidos">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon azul">⚡</div>
+
+                    <div>
+                        <span>Modo de plano</span>
+                        <h3>Smart</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid-principal">
+                <section class="painel-formulario">
+                    <div class="topo-secao">
+                        <span class="mini-label">Novo conteúdo</span>
+                        <h2 id="tituloFormulario">Cadastrar tópico</h2>
+                        <p id="subtituloFormulario">
+                            Informe o que precisa estudar para o sistema montar um plano mais eficiente.
+                        </p>
+                    </div>
+
+                    <form id="formTopico">
+                        <div class="campo">
+                            <label for="materia">Matéria</label>
+                            <input type="text" id="materia" placeholder="Ex: Algoritmos">
+                        </div>
+
+                        <div class="campo">
+                            <label for="nomeTopico">Tópico</label>
+                            <input type="text" id="nomeTopico" placeholder="Ex: Laços de repetição">
+                        </div>
+
+                        <div class="linha-campos">
+                            <div class="campo">
+                                <label for="dificuldade">Dificuldade</label>
+                                <select id="dificuldade">
+                                    <option value="Baixa">Baixa</option>
+                                    <option value="Média">Média</option>
+                                    <option value="Alta">Alta</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="tempoEstimado">Horas</label>
+                                <input type="number" id="tempoEstimado" min="0.5" step="0.5" placeholder="2">
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label for="prazo">Prazo ou data da prova</label>
+                            <input type="date" id="prazo">
+                        </div>
+
+                        <button type="submit" class="btn-principal" id="btnSubmit">
+                            + Adicionar ao plano
+                        </button>
+
+                        <button type="button" class="btn-cancelar-edicao escondido" id="btnCancelarEdicao">
+                            Cancelar edição
+                        </button>
+                    </form>
+                </section>
+
+                <section id="topicos" class="painel-topicos">
+                    <div class="topo-lista">
+                        <div>
+                            <span class="mini-label">Biblioteca de estudos</span>
+                            <h2>Tópicos cadastrados</h2>
+                            <p>
+                                Marque como concluído, edite, reabra ou remova conteúdos do seu plano.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="listaTopicos" class="lista-topicos">
+                        <div class="empty-state">
+                            <div class="empty-icon">📚</div>
+                            <h3>Nenhum tópico cadastrado</h3>
+                            <p>Adicione seu primeiro tópico para iniciar o planejamento.</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section id="cronograma" class="painel-cronograma">
+                <div class="topo-cronograma">
+                    <div>
+                        <span class="mini-label">Rotina sugerida</span>
+                        <h2>Cronograma inteligente</h2>
+                        <p>
+                            O StudyFlow organiza os tópicos pendentes considerando dificuldade,
+                            prazo, dias disponíveis e tempo de estudo por dia.
+                        </p>
+                    </div>
+
+                    <div class="controle-cronograma controle-cronograma-avancado">
+                        <label for="horasPorDia">Horas por dia</label>
+
+                        <div class="controle-linha">
+                            <input type="number" id="horasPorDia" min="0.5" step="0.5" value="2">
+
+                            <button id="btnGerarCronograma" class="btn-secundario" type="button">
+                                Gerar plano
+                            </button>
+                        </div>
+
+                        <div class="preferencias-rotina">
+                            <span>Dias disponíveis</span>
+
+                            <div class="dias-estudo">
+                                <label>
+                                    <input type="checkbox" class="dia-estudo" value="0" checked>
+                                    Seg
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" class="dia-estudo" value="1" checked>
+                                    Ter
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" class="dia-estudo" value="2" checked>
+                                    Qua
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" class="dia-estudo" value="3" checked>
+                                    Qui
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" class="dia-estudo" value="4" checked>
+                                    Sex
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" class="dia-estudo" value="5">
+                                    Sáb
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" class="dia-estudo" value="6">
+                                    Dom
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cronogramaGerado" class="timeline">
+                    <div class="empty-state">
+                        <div class="empty-icon">🗓️</div>
+                        <h3>Nenhum cronograma gerado</h3>
+                        <p>Cadastre tópicos e clique em “Gerar plano”.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modalDiagnostico" class="modal-diagnostico escondido">
+    <div class="modal-conteudo">
+        <div class="modal-topo">
+            <div>
+                <span class="mini-label">StudyFlow Tutor</span>
+
+                <h2 id="tituloDiagnostico">
+                    Diagnóstico inteligente
+                </h2>
+
+                <p id="subtituloDiagnostico">
+                    Responda algumas perguntas para identificar dificuldades específicas.
+                </p>
+            </div>
+
+            <button id="btnFecharDiagnostico" class="btn-fechar-modal" type="button">
+                ×
+            </button>
+        </div>
+
+        <div id="areaPerguntasDiagnostico" class="area-perguntas-diagnostico">
+            <!-- Perguntas aparecem aqui -->
+        </div>
+
+        <div id="areaResultadoDiagnostico" class="area-resultado-diagnostico escondido">
+            <!-- Resultado aparece aqui -->
+        </div>
+
+        <div class="modal-acoes">
+            <button id="btnGerarResultadoDiagnostico" class="btn-principal" type="button">
+                Gerar diagnóstico
+            </button>
+
+            <button id="btnAdicionarSubtopicos" class="btn-secundario escondido" type="button">
+                Aplicar diagnóstico no cronograma
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+   
